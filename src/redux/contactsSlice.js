@@ -1,4 +1,3 @@
-import { nanoid } from 'nanoid';
 import { createSlice } from '@reduxjs/toolkit';
 import { addContact, deleteContact, fetchContacts } from './operations';
 
@@ -49,25 +48,5 @@ const contactsSlice = createSlice({
     [deleteContact.rejected]: handleRejected,
   },
 });
-  // reducers: {
-  //   addContact: {
-  //     reducer(state, action) {
-  //       state.push(action.payload);
-  //     },
-  //     prepare(name, number) {
-  //       return {
-  //         payload: {
-  //           name,
-  //           id: nanoid(),
-  //           number: number,
-  //         },
-  //       };
-  //     },
-  //   },
-  //   deleteContact(state, action) {
-  //     return state.filter(contact => contact.id !== action.payload);
-  //   },
-  // },
-
-// export const { addContact, deleteContact } = contactsSlice.actions;
+  
 export const contactsReducer = contactsSlice.reducer;

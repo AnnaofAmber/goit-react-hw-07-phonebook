@@ -29,7 +29,7 @@ export const ContactForm = () => {
       alert(`${name} already exists!`);
       return;
     }
-    dispatch(addContact(name, number));
+    dispatch(addContact({name, number}));
     reset();
   };
   return (
