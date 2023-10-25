@@ -12,7 +12,6 @@ const onFilteredContacts = (contacts, filter) => {
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
-  console.log(contacts);
  let filteredContacts;
  if(contacts.length !== 0){
   filteredContacts = onFilteredContacts(contacts, filter);
