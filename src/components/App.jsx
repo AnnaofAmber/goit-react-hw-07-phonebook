@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getError, getIsLoading } from 'redux/selectors';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/operations';
+import { Loader } from './Loader/Loader';
 
 export const App = () => {
 
@@ -22,12 +23,14 @@ export const App = () => {
   return (
     <div className={css.main}>
       <h1 className={css.title}>Phonebook</h1>
-      <ContactForm />
-      {isLoading && !error && <b>Request in progress...</b>}
+      {isLoading && !error && <Loader/>}
+      {!isLoading && <div className={css.content}>
+        <ContactForm />
       <Contacts title="Contacts">
         <Filter />
         <ContactList />
       </Contacts>
+      </div>}
     </div>
   );
 };
