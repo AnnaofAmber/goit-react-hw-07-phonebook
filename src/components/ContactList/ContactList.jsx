@@ -12,10 +12,15 @@ const onFilteredContacts = (contacts, filter) => {
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
-  const filteredContacts = onFilteredContacts(contacts, filter);
+  console.log(contacts);
+ let filteredContacts;
+ if(contacts.length !== 0){
+  filteredContacts = onFilteredContacts(contacts, filter);
+ }
 
   return (
-    <ul className={css.list}>
+<div>
+  {contacts.length !== 0 && <ul className={css.list}>
       {filteredContacts.map(contact => (
         <Contact
           id={contact.id}
@@ -24,6 +29,7 @@ export const ContactList = () => {
           number={contact.number}
         />
       ))}
-    </ul>
+    </ul>}
+</div>
   );
 };
